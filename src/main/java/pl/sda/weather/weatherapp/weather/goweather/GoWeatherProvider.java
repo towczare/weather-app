@@ -19,4 +19,10 @@ public class GoWeatherProvider implements WeatherProvider {
 
         return new Weather(response.getBody().getTemperatureFormatted());
     }
+
+    @Override
+    public Weather forecast(String city) {
+
+        return null;
+    }
 }

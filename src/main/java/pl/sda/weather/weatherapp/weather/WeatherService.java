@@ -1,6 +1,7 @@
 package pl.sda.weather.weatherapp.weather;
 
 import org.springframework.stereotype.Service;
+import pl.sda.weather.weatherapp.weather.goweather.GoWeatherProvider;
 
 @Service
 public class WeatherService {
@@ -13,5 +14,9 @@ public class WeatherService {
 
     public Weather getWeather() {
         return weatherProvider.forecast();
+    }
+
+    public Weather getWeather(String city) {
+        return weatherProvider.forecast(city);
     }
 }
