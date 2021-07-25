@@ -11,7 +11,7 @@
     <div class="container is-widescreen">
         <h1 class="title">Add weather picture</h1>
 
-        <form action="#" th:action="@{/photos}" th:object="${photo}" method="POST">
+        <form action="#" enctype="multipart/form-data" th:action="@{/photos}" th:object="${photo}" method="POST">
             <div class="field">
                 <label class="label">City</label>
                 <div class="control">
@@ -21,11 +21,11 @@
             </div>
 
             <div class="field">
-                <label class="label">Url to photo</label>
+                <label class="label">Photo file</label>
                 <div class="control">
-                    <textarea class="textarea" placeholder="Enter url to picture" th:field="*{url}" />
+                    <input type="file" class="file" placeholder="Pick picture" th:field="*{image}" />
                 </div>
-                <p class="help">Enter url!</p>
+                <p class="help">Enter picture</p>
             </div>
 
             <input class="button is-normal is-success" type="submit" value="Submit"/>

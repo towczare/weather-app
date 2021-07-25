@@ -1,4 +1,4 @@
-package pl.sda.weather.weatherapp.weather;
+package pl.sda.weather.weatherapp.weather.photo;
 
 import java.util.List;
 
