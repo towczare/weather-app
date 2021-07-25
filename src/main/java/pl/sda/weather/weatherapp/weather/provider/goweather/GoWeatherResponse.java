@@ -1,4 +1,4 @@
-package pl.sda.weather.weatherapp.weather.goweather;
+package pl.sda.weather.weatherapp.weather.provider.goweather;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;

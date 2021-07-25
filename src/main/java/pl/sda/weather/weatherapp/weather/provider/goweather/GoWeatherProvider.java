@@ -1,9 +1,9 @@
-package pl.sda.weather.weatherapp.weather.goweather;
+package pl.sda.weather.weatherapp.weather.provider.goweather;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import pl.sda.weather.weatherapp.weather.Weather;
-import pl.sda.weather.weatherapp.weather.WeatherProvider;
+import pl.sda.weather.weatherapp.weather.WeatherStats;
+import pl.sda.weather.weatherapp.weather.provider.WeatherProvider;
 
 public class GoWeatherProvider implements WeatherProvider {
 
@@ -12,21 +12,21 @@ public class GoWeatherProvider implements WeatherProvider {
     private String GO_WEATHER_BASE_PATH = "https://goweather.herokuapp.com/weather/";
 
     @Override
-    public Weather forecast() {
+    public WeatherStats forecast() {
         return getWeather("Lodz");
     }
 
     @Override
-    public Weather forecast(String city) {
+    public WeatherStats forecast(String city) {
         return getWeather(city);
     }
 
-    private Weather getWeather(String city) {
+    private WeatherStats getWeather(String city) {
         String fooResourceUrl
                 = GO_WEATHER_BASE_PATH + city;
         ResponseEntity<GoWeatherResponse> response
                 = restTemplate.getForEntity(fooResourceUrl, GoWeatherResponse.class);
 
-        return new Weather(response.getBody().getTemperatureFormatted());
+        return new WeatherStats(response.getBody().getTemperatureFormatted());
     }
 }

@@ -8,7 +8,7 @@
 
 <h1>Weather App!</h1>
 
-<h4><span th:text="'Aktualna pogoda to ' + ${weather.temp} + ' °C'"></span> </h4>
+<h4><span th:text="'Aktualna pogoda w ' + ${weather.city} + ' to ' + ${weather.stats.temp} + ' °C'"></span> </h4>
 
 <form action="#" th:action="@{/}" th:object="${weatherCriteria}" method="get">
     <p>City: <input type="text" th:field="*{city}" /></p>

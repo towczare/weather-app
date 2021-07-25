@@ -1,7 +1,10 @@
 package pl.sda.weather.weatherapp.weather;
 
 import org.springframework.stereotype.Service;
-import pl.sda.weather.weatherapp.weather.goweather.GoWeatherProvider;
+import pl.sda.weather.weatherapp.weather.provider.DummyWeatherProvider;
+import pl.sda.weather.weatherapp.weather.provider.WeatherProvider;
+
+import java.util.Collections;
 
 @Service
 public class WeatherService {
@@ -13,10 +16,14 @@ public class WeatherService {
     }
 
     public Weather getWeather() {
-        return weatherProvider.forecast();
+        WeatherStats stats = weatherProvider.forecast();
+
+        return new Weather("Lodz", stats, Collections.emptyList());
     }
 
     public Weather getWeather(String city) {
-        return weatherProvider.forecast(city);
+        WeatherStats stats = weatherProvider.forecast(city);
+
+        return new Weather(city, stats, Collections.emptyList());
     }
 }

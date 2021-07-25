@@ -1,8 +1,8 @@
-package pl.sda.weather.weatherapp.weather.goweather;
+package pl.sda.weather.weatherapp.weather.provider.goweather;
 
 
 import org.junit.jupiter.api.Test;
-import pl.sda.weather.weatherapp.weather.Weather;
+import pl.sda.weather.weatherapp.weather.WeatherStats;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -12,7 +12,7 @@ public class GoWeatherProviderTest {
     public void consume() {
         GoWeatherProvider goWeatherProvider = new GoWeatherProvider();
 
-        Weather forecast = goWeatherProvider.forecast();
+        WeatherStats forecast = goWeatherProvider.forecast();
         assertNotNull(forecast);
     }
 
