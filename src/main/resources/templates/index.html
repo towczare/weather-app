@@ -18,6 +18,9 @@
     <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
 </form>
 
+<a th:href="@{photos}">Add weather photo</a>
+
+
 <table th:if="${not #lists.isEmpty(weather.photos)}">
     <tr th:each="photo: ${weather.photos}">
         <td><img th:src="${photo.url}" th:width="500" /></td>

@@ -32,4 +32,8 @@ public class WeatherService {
 
         return new Weather(city, stats, photos);
     }
+
+    public void addWeatherPhoto(WeatherPhoto photo) {
+        weatherPhotoRepository.save(photo);
+    }
 }

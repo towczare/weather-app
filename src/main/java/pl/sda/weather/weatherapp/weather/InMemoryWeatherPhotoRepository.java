@@ -28,4 +28,9 @@ public class InMemoryWeatherPhotoRepository implements WeatherPhotoRepository {
                 .filter(w -> w.getCity().equals(city))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void save(WeatherPhoto photo) {
+        weatherPhotos.put(weatherPhotos.size() + 1l, photo);
+    }
 }
