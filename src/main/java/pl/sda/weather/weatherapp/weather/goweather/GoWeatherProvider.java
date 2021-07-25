@@ -9,20 +9,24 @@ public class GoWeatherProvider implements WeatherProvider {
 
     RestTemplate restTemplate = new RestTemplate();
 
+    private String GO_WEATHER_BASE_PATH = "https://goweather.herokuapp.com/weather/";
+
     @Override
     public Weather forecast() {
-
-        String fooResourceUrl
-                = "https://goweather.herokuapp.com/weather/Lodz";
-        ResponseEntity<GoWeatherResponse> response
-                = restTemplate.getForEntity(fooResourceUrl, GoWeatherResponse.class);
-
-        return new Weather(response.getBody().getTemperatureFormatted());
+        return getWeather("Lodz");
     }
 
     @Override
     public Weather forecast(String city) {
+        return getWeather(city);
+    }
 
-        return null;
+    private Weather getWeather(String city) {
+        String fooResourceUrl
+                = GO_WEATHER_BASE_PATH + city;
+        ResponseEntity<GoWeatherResponse> response
+                = restTemplate.getForEntity(fooResourceUrl, GoWeatherResponse.class);
+
+        return new Weather(response.getBody().getTemperatureFormatted());
     }
 }
