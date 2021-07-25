@@ -8,11 +8,14 @@
 
 <h1>Weather App!</h1>
 
-<h4><span th:text="'Aktualna pogoda w ' + ${weather.city} + ' to ' + ${weather.stats.temp} + ' °C'"></span> </h4>
+<h4 th:text="${weather.city ne null and weather.city ne ''}
+                ? 'Aktualna pogoda w ' + ${weather.city} + ' to ' + ${weather.stats.temp} + ' °C'
+                : 'Search for city to get weather information'">
+</h4>
 
 <form action="#" th:action="@{/}" th:object="${weatherCriteria}" method="get">
-    <p>City: <input type="text" th:field="*{city}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <p>City: <input type="text" th:field="*{city}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
 </form>
 
 </body>
