@@ -1,5 +1,6 @@
 package pl.sda.weather.weatherapp.weather.provider.goweather;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import pl.sda.weather.weatherapp.weather.WeatherStats;
@@ -7,14 +8,10 @@ import pl.sda.weather.weatherapp.weather.provider.WeatherProvider;
 
 public class GoWeatherProvider implements WeatherProvider {
 
-    RestTemplate restTemplate = new RestTemplate();
+    @Autowired
+    RestTemplate restTemplate;
 
     private String GO_WEATHER_BASE_PATH = "https://goweather.herokuapp.com/weather/";
-
-    @Override
-    public WeatherStats forecast() {
-        return getWeather("Lodz");
-    }
 
     @Override
     public WeatherStats forecast(String city) {
